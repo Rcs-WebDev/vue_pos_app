@@ -783,7 +783,7 @@ const translations = {
 
 export const useLangStore = defineStore('lang', {
   state: () => ({
-    currentLang: localStorage.getItem(STORED_LANG_KEY) || 'id'
+    currentLang: localStorage.getItem(STORED_LANG_KEY) || 'en'
   }),
 
   getters: {

@@ -63,24 +63,6 @@
           {{ langStore.t('loginButton') }}
         </el-button>
       </el-form>
-
-      <!-- Secret Credentials Box (Saved in README.md) -->
-      <div class="credentials-box mt-4">
-        <div class="cred-header font-bold flex items-center gap-2 text-blue">
-          <el-icon><Key /></el-icon>
-          <span>{{ langStore.t('secretCredentialsTitle') }}</span>
-        </div>
-        <div class="cred-body font-12 mt-2">
-          <div class="cred-row flex justify-between align-center mb-1">
-            <span><strong>Manager:</strong> password <code class="bg-gray">manager123</code></span>
-            <el-tag type="danger" size="small">Akses Penuh</el-tag>
-          </div>
-          <div class="cred-row flex justify-between align-center">
-            <span><strong>Staff:</strong> password <code class="bg-gray">staff123</code></span>
-            <el-tag type="info" size="small">Akses Terbatas</el-tag>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -91,7 +73,7 @@ import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/authStore';
 import { useLangStore } from '@/stores/langStore';
 import { ElNotification } from 'element-plus';
-import { Lock, Key, CaretBottom } from '@element-plus/icons-vue';
+import { Lock, CaretBottom } from '@element-plus/icons-vue';
 
 const authStore = useAuthStore();
 const langStore = useLangStore();
@@ -119,6 +101,7 @@ const handleLogin = () => {
     isLoading.value = false;
 
     if (res.success) {
+      langStore.setLanguage('en');
       ElNotification({
         title: langStore.t('loginSuccess'),
         message: `${langStore.t('loginSuccessMsg')} ${res.user.name} (${res.user.role})`,
