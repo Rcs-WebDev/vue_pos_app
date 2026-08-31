@@ -205,28 +205,5 @@ const handleLogin = () => {
   border: none;
 }
 
-.credentials-box {
-  background-color: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-
-.bg-gray {
-  background: #e2e8f0;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: monospace;
-  color: #1e293b;
-}
-
-.mt-4 { margin-top: 16px; }
 .mb-3 { margin-bottom: 12px; }
-.text-blue { color: #0088ff; }
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-2 { gap: 8px; }
-.font-12 { font-size: 12px; }
-.font-bold { font-weight: bold; }
 </style>
