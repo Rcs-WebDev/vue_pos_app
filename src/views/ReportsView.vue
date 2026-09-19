@@ -520,16 +520,27 @@ const printPnl = () => {
   background-color: #ffffff;
   border-radius: 14px;
   border: 1px solid #e2e8f0;
-  padding: 10px 20px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.report-tabs { display: flex; gap: 16px; overflow-x: auto; }
+.report-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.report-tabs::-webkit-scrollbar {
+  display: none;
+}
 
 .tab-btn {
   display: flex;
@@ -549,7 +560,17 @@ const printPnl = () => {
 
 .tab-btn.active { background-color: #eef2ff; color: #2563eb; font-weight: 800; }
 
-.date-filter-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.date-filter-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+:deep(.date-filter-tools .el-input__wrapper) {
+  min-height: 36px !important;
+  height: 36px !important;
+}
 
 :deep(.mode-toggle .el-radio-button__inner) {
   background: #f1f5f9;
@@ -557,6 +578,9 @@ const printPnl = () => {
   border: none;
   font-weight: 700;
   font-size: 14px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 15px;
 }
 
 :deep(.mode-toggle .el-radio-button__original-radio:checked + .el-radio-button__inner) {

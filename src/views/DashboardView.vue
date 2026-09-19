@@ -45,7 +45,7 @@
       <div class="quick-actions-card pos-card">
         <div class="card-header">{{ langStore.t('quickActionsTitle') }}</div>
         <div class="actions-buttons-grid">
-          <el-button class="card-cashier" type="primary" size="large" :icon="ShoppingCart" @click="$router.push('/cashier')">
+          <el-button type="primary" size="large" :icon="ShoppingCart" @click="$router.push('/cashier')">
             {{ langStore.t('openPosBtn') }}
           </el-button>
           <el-button type="success" size="large" :icon="Plus" @click="$router.push('/products')">
@@ -235,12 +235,29 @@ const formatRp = (val) => {
 
 .actions-buttons-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-.card-cashier {
-    margin-left: 12px;
+.actions-buttons-grid :deep(.el-button),
+.actions-buttons-grid .el-button {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 54px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 15px !important;
+  box-sizing: border-box !important;
+}
+
+.actions-buttons-grid :deep(.el-button span) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .top-list {
